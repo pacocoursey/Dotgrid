@@ -27,10 +27,10 @@ app.inject_menu = function(m)
 
 app.win = null;
 
-app.on('ready', () => 
+app.on('ready', () =>
 {
   app.win = new BrowserWindow({width: 400, height: 420, minWidth: 400, minHeight: 420,webPreferences: {zoomFactor: 1.0}, backgroundColor:"#000", frame:false, autoHideMenuBar: true, icon: __dirname + '/icon.ico'})
-  
+
   app.win.loadURL(`file://${__dirname}/sources/index.html`);
 
   app.win.on('closed', () => {
@@ -47,7 +47,7 @@ app.on('ready', () =>
   })
 })
 
-app.on('window-all-closed', () => 
+app.on('window-all-closed', () =>
 {
   app.quit()
 })
@@ -55,8 +55,7 @@ app.on('window-all-closed', () =>
 app.on('activate', () => {
   if (app.win === null) {
     createWindow()
-  }
-  else{
-    
+  } else {
+    app.win.show();
   }
 })
